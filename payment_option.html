@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="payment_option.css">
+</head>
+<body>
+
+  <header>
+    <div class="name_side">
+      <h2 class="logo">
+        KGEC Central Library
+      </h2>
+
+      <nav class="navigation">
+       
+        <a href="index.html">Book self<span></span></a>
+        <a href="login.html">Sign Out<span></span></a>
+        <!-- <button class="btnLogin-popup">
+          Sign Up</button> -->
+      </nav>
+    </div>
+  </header>
+
+    <div class="container">
+        <!-- Left Side: Payment Options -->
+        <div class="payment-options">
+            <h3>Choose Payment Method : </h3>
+            <div class="option" onclick="selectPayment('UPI')">
+                <img src="img/upi.jfif" alt="UPI">
+                <p>UPI</p>
+            </div>
+            <div class="option" onclick="selectPayment('Paytm')">
+                <img src="img/paytm.jfif" alt="Paytm">
+                <p>Paytm</p>
+            </div>
+            <div class="option" onclick="selectPayment('Google Pay')">
+                <img src="img/G.png" alt="Google Pay">
+                <p>Google Pay</p>
+            </div>
+            <div class="option" onclick="selectPayment('Card')">
+                <img src="img/card.jfif" alt="Card">
+                <p>Card</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Selected Payment Method and Buying Option -->
+        <div class="payment-details">
+            <h3>Payment Details :</h3>
+            <div id="selected-method">
+                <p>Select a payment method to proceed ...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scriptPayment.js"></script>
+</body>
+</html>

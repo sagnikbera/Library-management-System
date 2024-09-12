@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="bg-gray-800 h-20">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start pt-4">
+                    <div class="flex flex-shrink-0 items-center">
+                        <img class="h-12 w-auto rounded-full" src="/img/kgec-logo.png" alt="KGEC Logo">
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">BOOK SHELF</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Borrowed Books</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Fine</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Rules</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button type="button" class="ml-4 flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700">Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="login-hero" class="w-full min-h-screen bg-zinc-900 text-white flex justify-center items-center">
+        <div class="w-full max-w-md bg-zinc-800 p-8 rounded-md shadow-lg">
+            <h2 class="text-3xl font-bold text-center mb-8">Login to KGEC Central Library</h2>
+            
+            <div class="flex justify-between mb-6">
+                <button id="admin-login-btn" class="w-full mx-2 py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Admin Login
+                </button>
+                <button id="student-login-btn" class="w-full mx-2 py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    Student Login
+                </button>
+            </div>
+
+            <!-- Admin Login Form -->
+            <form id="admin-login-form" action="#" method="POST" class="space-y-6 hidden">
+                <div>
+                    <label for="admin-email" class="block text-sm font-medium">Admin Email address</label>
+                    <input id="admin-email" name="email" type="email" autocomplete="email" required class="w-full mt-2 p-3 border border-gray-500 rounded-md bg-zinc-700 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="admin@example.com">
+                </div>
+                <div>
+                    <label for="admin-password" class="block text-sm font-medium">Password</label>
+                    <input id="admin-password" name="password" type="password" autocomplete="current-password" required class="w-full mt-2 p-3 border border-gray-500 rounded-md bg-zinc-700 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••">
+                </div>
+                <div>
+                    <button id="admin-submit" type="button" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" disabled>
+                        Admin Sign in
+                    </button>
+                </div>
+            </form>
+
+            <!-- Student Login Form -->
+            <form id="student-login-form" action="#" method="POST" class="space-y-6 hidden">
+                <div>
+                    <label for="student-email" class="block text-sm font-medium">Student Email address</label>
+                    <input id="student-email" name="email" type="email" autocomplete="email" required class="w-full mt-2 p-3 border border-gray-500 rounded-md bg-zinc-700 text-white focus:ring-green-500 focus:border-green-500" placeholder="student@example.com">
+                </div>
+                <div>
+                    <label for="student-password" class="block text-sm font-medium">Password</label>
+                    <input id="student-password" name="password" type="password" autocomplete="current-password" required class="w-full mt-2 p-3 border border-gray-500 rounded-md bg-zinc-700 text-white focus:ring-green-500 focus:border-green-500" placeholder="••••••••">
+                </div>
+                <div>
+                    <button id="student-submit" type="button" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" disabled>
+                        Student Sign in
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        // Elements
+        const adminLoginBtn = document.getElementById('admin-login-btn');
+        const studentLoginBtn = document.getElementById('student-login-btn');
+        const adminLoginForm = document.getElementById('admin-login-form');
+        const studentLoginForm = document.getElementById('student-login-form');
+
+        const adminSubmit = document.getElementById('admin-submit');
+        const studentSubmit = document.getElementById('student-submit');
+
+        const adminEmail = document.getElementById('admin-email');
+        const adminPassword = document.getElementById('admin-password');
+        const studentEmail = document.getElementById('student-email');
+        const studentPassword = document.getElementById('student-password');
+
+        // Show Admin Login Form
+        adminLoginBtn.addEventListener('click', function() {
+            adminLoginForm.classList.remove('hidden');
+            studentLoginForm.classList.add('hidden');
+            checkAdminInputs(); // Check inputs when form is shown
+        });
+
+        // Show Student Login Form
+        studentLoginBtn.addEventListener('click', function() {
+            studentLoginForm.classList.remove('hidden');
+            adminLoginForm.classList.add('hidden');
+            checkStudentInputs(); // Check inputs when form is shown
+        });
+
+        // Check Admin Input Fields
+        function checkAdminInputs() {
+            const isEmailValid = adminEmail.value.trim() !== '';
+            const isPasswordValid = adminPassword.value.trim() !== '';
+            adminSubmit.disabled = !(isEmailValid && isPasswordValid);
+        }
+
+        // Check Student Input Fields
+        function checkStudentInputs() {
+            const isEmailValid = studentEmail.value.trim() !== '';
+            const isPasswordValid = studentPassword.value.trim() !== '';
+            studentSubmit.disabled = !(isEmailValid && isPasswordValid);
+        }
+
+        // Add event listeners to check inputs as they are typed
+        adminEmail.addEventListener('input', checkAdminInputs);
+        adminPassword.addEventListener('input', checkAdminInputs);
+        studentEmail.addEventListener('input', checkStudentInputs);
+        studentPassword.addEventListener('input', checkStudentInputs);
+
+        // Redirect to admin.html on admin sign in
+        adminSubmit.addEventListener('click', function() {
+            window.location.href = "admin.html";  // Redirect to admin.html
+        });
+
+        // Redirect to index.html on student sign in
+        studentSubmit.addEventListener('click', function() {
+            window.location.href = "index.html";  // Redirect to index.html
+        });
+    </script>
+
+</body>
+</html>
